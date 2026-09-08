@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebranding — Instituto Terciario Nuestra Señora de Fátima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PALETA FÁTIMA — Variables
+   ============================================================ */
+:root {
+  /* Primarios */
+  --borgona:       #6A2517;
+  --borgona-deep:  #4E1A10;
+  --borgona-light: #8B3A28;
+  --dorado:        #A67C3D;
+  --dorado-light:  #C9A85C;
+  --dorado-pale:   #E8D5A8;
+  --crema:         #F5EDE3;
+  --crema-dark:    #E8DCCC;
+  --blanco:        #FDFBF8;
+
+  /* Secundarios */
+  --verde:    #1B5E4B;
+  --azul:     #1E3A5F;
+  --rosa:     #C4567A;
+  --naranja:  #D4763A;
+  --violeta:  #7B4D8A;
+
+  /* Neutros */
+  --texto:      #2C1810;
+  --texto-mid:  #5A4538;
+  --texto-light:#8A7A6E;
+  --borde:      #D8CCC0;
+
+  /* Tipografía */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', -apple-system, sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Espaciado */
+  --section-pad: clamp(3rem, 8vw, 6rem);
+  --container:   min(1200px, 100% - 2.5rem);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--texto);
+  background: var(--crema);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: var(--borgona); text-decoration: none; }
+a:hover { color: var(--borgona-deep); }
+ul { list-style: none; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { width: var(--container); margin-inline: auto; }
+.section   { padding-block: var(--section-pad); }
+.band      { background: var(--blanco); }
+.band-dark { background: var(--borgona); color: var(--crema); }
+.band-darker { background: var(--borgona-deep); color: var(--crema); }
+
+/* ============================================================
+   TOPBAR & NAV
+   ============================================================ */
+.topbar { height: 4px; background: linear-gradient(90deg, var(--borgona), var(--dorado), var(--borgona)); }
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--crema) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borde);
+}
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 0;
+}
+.nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+.nav-brand .cross {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  background: var(--borgona); color: var(--dorado);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+}
+.nav-brand span {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: var(--borgona); line-height: 1.2;
+}
+.nav-brand small {
+  display: block; font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--dorado);
+  font-weight: 400;
+}
+.nav-links { display: flex; gap: 0.2rem; }
+.nav-links a {
+  padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 500;
+  color: var(--texto-mid); border-radius: 4px;
+  transition: all 0.15s;
+}
+.nav-links a:hover, .nav-links a.active {
+  background: var(--borgona); color: var(--crema);
+}
+.nav-toggle {
+  display: none; background: none; border: 1px solid var(--borde);
+  width: 40px; height: 40px; cursor: pointer; color: var(--texto);
+  font-size: 1.3rem;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: linear-gradient(160deg, var(--borgona) 0%, var(--borgona-deep) 100%);
+  color: var(--crema);
+  padding-block: clamp(4rem, 10vw, 7rem) clamp(2rem, 5vw, 4rem);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; opacity: 0.06;
+  background-image:
+    linear-gradient(45deg, var(--dorado) 25%, transparent 25%, transparent 75%, var(--dorado) 75%),
+    linear-gradient(45deg, var(--dorado) 25%, transparent 25%, transparent 75%, var(--dorado) 75%);
+  background-size: 32px 32px; background-position: 0 0, 16px 16px;
+}
+.hero-content { position: relative; z-index: 1; text-align: center; max-width: 800px; margin-inline: auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--dorado-light);
+  margin-bottom: 1.5rem;
+}
+.hero-badge::before { content: ''; width: 28px; height: 2px; background: var(--dorado); }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem); line-height: 1.05;
+  letter-spacing: -0.03em; margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--dorado-light); font-weight: 600; }
+.hero-sub {
+  font-size: 1.1rem; line-height: 1.7; color: color-mix(in srgb, var(--crema) 85%, transparent);
+  max-width: 60ch; margin-inline: auto;
+}
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  margin-top: 3rem; background: color-mix(in srgb, var(--dorado) 30%, transparent);
+}
+.hero-stat {
+  background: var(--borgona-deep); padding: 1.5rem 1rem; text-align: center;
+}
+.hero-stat b {
+  display: block; font-family: var(--font-display); font-weight: 700;
+  font-size: 2rem; color: var(--dorado-light);
+}
+.hero-stat span {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--crema) 60%, transparent);
+}
+
+/* ============================================================
+   SECCIONES GENERALES
+   ============================================================ */
+.section-label {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--dorado);
+  margin-bottom: 0.8rem;
+}
+.section-label::before { content: ''; width: 24px; height: 2px; background: var(--dorado); }
+.section-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1;
+  letter-spacing: -0.025em; margin-bottom: 0.8rem;
+}
+.section-lede {
+  font-size: 1.05rem; color: var(--texto-mid); max-width: 60ch; margin-bottom: 2rem;
+}
+.band-dark .section-label { color: var(--dorado-light); }
+.band-dark .section-title { color: var(--crema); }
+.band-dark .section-lede  { color: color-mix(in srgb, var(--crema) 75%, transparent); }
+
+/* ============================================================
+   TABS
+   ============================================================ */
+.tabs { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.tab-btn {
+  padding: 0.55rem 1.1rem; font-family: var(--font-body); font-size: 0.85rem;
+  font-weight: 600; border: 1px solid var(--borde); background: var(--blanco);
+  color: var(--texto-mid); cursor: pointer; transition: all 0.15s;
+}
+.tab-btn:hover { border-color: var(--borgona); color: var(--borgona); }
+.tab-btn.active {
+  background: var(--borgona); color: var(--crema); border-color: var(--borgona);
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--blanco); border: 1px solid var(--borde);
+  padding: 1.5rem; transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 8px 24px -8px rgba(106,37,23,0.12); }
+.card-label {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--dorado); margin-bottom: 0.5rem;
+}
+.card h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.2rem;
+  line-height: 1.2; margin-bottom: 0.5rem;
+}
+.card p { font-size: 0.92rem; color: var(--texto-mid); }
+
+/* Cards de colores */
+.card-borgona { background: var(--borgona); color: var(--crema); border-color: transparent; }
+.card-borgona .card-label { color: var(--dorado-light); }
+.card-borgona p { color: color-mix(in srgb, var(--crema) 80%, transparent); }
+.card-dorado { background: var(--dorado); color: var(--borgona-deep); border-color: transparent; }
+.card-dorado .card-label { color: var(--borgona-deep); }
+.card-dorado p { color: color-mix(in srgb, var(--borgona-deep) 75%, transparent); }
+
+/* ============================================================
+   GRID LAYOUTS
+   ============================================================ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+
+/* ============================================================
+   PALETTE DISPLAY
+   ============================================================ */
+.palette-row { display: flex; gap: 0; margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; }
+.palette-swatch {
+  flex: 1; padding: 2rem 1rem 1rem; display: flex; flex-direction: column;
+  justify-content: flex-end; min-height: 120px; position: relative;
+}
+.palette-swatch .swatch-name {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.2rem;
+}
+.palette-swatch .swatch-hex {
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
+}
+.palette-swatch.light-text { color: var(--crema); }
+.palette-swatch.dark-text  { color: var(--borgona-deep); }
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 0; bottom: 0;
+  width: 2px; background: var(--borde);
+}
+.timeline-item { position: relative; padding-bottom: 2rem; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -2rem; top: 0.35rem;
+  width: 14px; height: 14px; background: var(--borgona); border-radius: 50%;
+  border: 3px solid var(--crema);
+}
+.timeline-item h4 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.timeline-item p { font-size: 0.9rem; color: var(--texto-mid); }
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.data-table th {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--dorado); text-align: left;
+  padding: 0.8rem 1rem; border-bottom: 2px solid var(--dorado);
+  background: var(--crema);
+}
+.data-table td {
+  padding: 0.75rem 1rem; border-bottom: 1px solid var(--borde);
+  font-size: 0.9rem;
+}
+.data-table tr:hover td { background: color-mix(in srgb, var(--dorado) 5%, var(--blanco)); }
+.band-dark .data-table th { background: var(--borgona-deep); color: var(--dorado-light); border-color: var(--dorado); }
+.band-dark .data-table td { border-bottom-color: color-mix(in srgb, var(--crema) 15%, transparent); color: var(--crema); }
+.band-dark .data-table tr:hover td { background: color-mix(in srgb, var(--crema) 5%, transparent); }
+
+/* ============================================================
+   QUOTE / PULLQUOTE
+   ============================================================ */
+.pullquote {
+  font-family: var(--font-display); font-style: italic; font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.4;
+  border-top: 3px solid var(--dorado); padding-top: 1.2rem;
+  max-width: 50ch; position: relative;
+}
+.pullquote::before {
+  content: '\201C'; position: absolute; top: 0.4rem; right: -0.5rem;
+  font-size: 4rem; color: color-mix(in srgb, var(--dorado) 25%, transparent);
+  font-family: var(--font-display); line-height: 1;
+}
+
+/* ============================================================
+   FORMULA / RECIPE BOX
+   ============================================================ */
+.recipe-box {
+  background: var(--blanco); border: 1px solid var(--borde);
+  border-left: 4px solid var(--borgona); padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.recipe-box h4 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  margin-bottom: 0.5rem; color: var(--borgona);
+}
+.recipe-box pre {
+  font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.7;
+  white-space: pre-wrap; color: var(--texto-mid);
+  background: var(--crema); padding: 1rem; border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   BADGE / PILL
+   ============================================================ */
+.badge {
+  display: inline-block; padding: 0.25rem 0.65rem;
+  font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--dorado); color: var(--dorado);
+}
+.badge-fill { background: var(--dorado); color: var(--borgona-deep); border-color: var(--dorado); }
+.badge-borgona { background: var(--borgona); color: var(--crema); border-color: var(--borgona); }
+
+/* ============================================================
+   Foda
+   ============================================================ */
+.foda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.foda-card {
+  padding: 1.5rem; border: 1px solid var(--borde); background: var(--blanco);
+}
+.foda-card.fortaleza { border-left: 4px solid var(--verde); }
+.foda-card.debilidad { border-left: 4px solid var(--rosa); }
+.foda-card.oportunidad { border-left: 4px solid var(--azul); }
+.foda-card.amenaza { border-left: 4px solid var(--naranja); }
+.foda-card h4 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+.foda-card ul { list-style: disc; padding-left: 1.2rem; }
+.foda-card li { font-size: 0.9rem; color: var(--texto-mid); margin-bottom: 0.4rem; }
+
+/* ============================================================
+   SCRIPT CARD
+   ============================================================ */
+.script-card {
+  background: var(--blanco); border: 1px solid var(--borde);
+  overflow: hidden; margin-bottom: 1.2rem;
+}
+.script-header {
+  background: var(--borgona); color: var(--crema); padding: 1rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.script-header h4 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+}
+.script-body { padding: 1.5rem; }
+.script-body pre {
+  font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.8;
+  white-space: pre-wrap; color: var(--texto);
+}
+
+/* ============================================================
+   CHECKLIST
+   ============================================================ */
+.checklist { list-style: none; }
+.checklist li {
+  padding: 0.5rem 0; padding-left: 1.8rem; position: relative;
+  border-bottom: 1px solid var(--borde); font-size: 0.92rem;
+}
+.checklist li::before {
+  content: '\2713'; position: absolute; left: 0; top: 0.5rem;
+  width: 20px; height: 20px; background: var(--verde); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--borgona-deep); color: color-mix(in srgb, var(--crema) 70%, transparent);
+  padding-block: 3rem 1.5rem; text-align: center;
+}
+.footer h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.3rem;
+  color: var(--crema); margin-bottom: 0.5rem;
+}
+.footer p { font-size: 0.85rem; max-width: 50ch; margin-inline: auto; }
+.footer .f-line {
+  width: 40px; height: 2px; background: var(--dorado); margin: 1rem auto;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .grid-2, .grid-3, .grid-4, .foda-grid { grid-template-columns: 1fr; }
+  .grid-2-1 { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 100%; left: 0; right: 0; background: var(--crema);
+    border-bottom: 1px solid var(--borde); padding: 1rem;
+  }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .hero-stats { grid-template-columns: 1fr; }
+  .palette-row { flex-direction: column; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .navbar, .topbar { position: static; }
+  .tab-panel { display: block !important; page-break-inside: avoid; }
+  .tabs { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== TOPBAR ==================== -->
+<div class="topbar" aria-hidden="true"></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a class="nav-brand" href="#inicio">
+      <div class="cross">F</div>
+      <span>Rebranding Fatima<small>Proyecto de marca y estrategia</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#analisis">Analisis</a>
+      <a href="#identidad">Identidad</a>
+      <a href="#voz">Voz</a>
+      <a href="#estrategia">Estrategia</a>
+      <a href="#calendario">Calendario</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#reels">Reels</a>
+      <a href="#growth">Growth</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="inicio">
+  <div class="container hero-content">
+    <span class="hero-badge">Proyecto completo de rebranding</span>
+    <h1>Instituto Terciario<br><em>Nuestra Senora de Fatima</em></h1>
+    <p class="hero-sub">
+      Rebranding, contenido y estrategia de marketing para la institucion terciaria
+      de la Red Educativa Marianista en Villa Soldati, CABA.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>4</b><span>Carreras</span></div>
+      <div class="hero-stat"><b>306</b><span>Estudiantes</span></div>
+      <div class="hero-stat"><b>60</b><span>Docentes</span></div>
+      <div class="hero-stat"><b>2011</b><span>Fundacion</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     01 — AUDITORIA DE MARCA
+     ==================================================================== -->
+<section class="section" id="analisis">
+  <div class="container">
+    <span class="section-label">01 — Diagnostico</span>
+    <h2 class="section-title">Auditoria de Marca</h2>
+    <p class="section-lede">
+      Diagnostico integral de la marca actual: presencia digital, identidad visual,
+      voz de marca, y oportunidades de crecimiento.
+    </p>
+
+    <!-- Datos institucionales -->
+    <div class="grid-2" style="margin-bottom: 2.5rem;">
+      <div class="card">
+        <div class="card-label">Datos institucionales</div>
+        <table class="data-table">
+          <tr><td><strong>Nombre</strong></td><td>Instituto Superior Nuestra Senora de Fatima</td></tr>
+          <tr><td><strong>Direccion</strong></td><td>Mariano Acosta 2920, Villa Soldati, CABA</td></tr>
+          <tr><td><strong>Telefono</strong></td><td>011 4918-3778</td></tr>
+          <tr><td><strong>Fundacion</strong></td><td>2011</td></tr>
+          <tr><td><strong>Matricula</strong></td><td>306 estudiantes</td></tr>
+          <tr><td><strong>Docentes</strong></td><td>60</td></tr>
+          <tr><td><strong>Afiliacion</strong></td><td>Red Educativa Marianista</td></tr>
+          <tr><td><strong>Registro</strong></td><td>Institucion terciaria A-1486</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-label">Presencia digital actual</div>
+        <table class="data-table">
+          <tr><td><strong>Instagram</strong></td><td>@fatimaterciario <span class="badge">4 posts</span></td></tr>
+          <tr><td><strong>YouTube</strong></td><td>@TerciarioFatima <span class="badge">Sin actividad</span></td></tr>
+          <tr><td><strong>TikTok</strong></td><td>No existe <span class="badge badge-borgona">Oportunidad</span></td></tr>
+          <tr><td><strong>Web</strong></td><td>terciariofatimasoldati.edu.ar <span class="badge badge-fill">Landing excelente</span></td></tr>
+          <tr><td><strong>Email</strong></td><td>redes@terciariofatimasoldati.edu.ar</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- FODA -->
+    <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1rem;">Analisis FODA</h3>
+    <div class="foda-grid">
+      <div class="foda-card fortaleza">
+        <h4>Fortalezas</h4>
+        <ul>
+          <li><strong>Identidad marianista clara:</strong> "Educamos personas, en la fe, en comunidad y para el servicio."</li>
+          <li><strong>Ubicacion estrategica:</strong> Pocos institutos terciarios en Villa Soldati</li>
+          <li><strong>Comunidad autentica:</strong> Muchos estudiantes son primera generacion universitaria</li>
+          <li><strong>Landing page sobresaliente:</strong> Calidad de diseno superior al promedio</li>
+          <li><strong>Guia de filmacion:</strong> Protocolo de produccion de contenido preparado</li>
+          <li><strong>Carreras con salida laboral:</strong> Enfermeria y Seguridad alta demanda</li>
+        </ul>
+      </div>
+      <div class="foda-card debilidad">
+        <h4>Debilidades</h4>
+        <ul>
+          <li><strong>Inconsistencia de naming:</strong> 3 handles distintos en 3 plataformas</li>
+          <li><strong>Presencia en redes debil:</strong> Solo 4 posts en Instagram, YouTube inactivo</li>
+          <li><strong>Sin identidad visual para redes:</strong> Excelente web pero nada para Instagram/YouTube</li>
+          <li><strong>Equipo reducido:</strong> Solo 3 personas para todo el ecosistema digital</li>
+          <li><strong>Sin estrategia documentada:</strong> La guia es tecnica pero no define calendario/KPIs</li>
+          <li><strong>Sin TikTok:</strong> Plataforma clave para el publico objetivo</li>
+        </ul>
+      </div>
+      <div class="foda-card oportunidad">
+        <h4>Oportunidades</h4>
+        <ul>
+          <li><strong>Villa Soldati como narrativa:</strong> Historia, lucha y comunidad = contenido genuino</li>
+          <li><strong>Contenido de valor real:</strong> Enfermeria, seguridad, pedagogia = contenido buscado</li>
+          <li><strong>Primera generacion universitaria:</strong> Historia emocional, compartible</li>
+          <li><strong>Shorts/Reels educativos:</strong> Formato ideal para conceptos de cada carrera</li>
+          <li><strong>Red Educativa Marianista:</strong> Articular contenido con otros institutos</li>
+          <li><strong>Cohorte nueva 2026:</strong> Momentum de crecimiento</li>
+        </ul>
+      </div>
+      <div class="foda-card amenaza">
+        <h4>Amenazas</h4>
+        <ul>
+          <li><strong>Competencia de universidades publicas:</strong> UBA, UNSAM, UNGS</li>
+          <li><strong>Percepcion de "colegio religioso":</strong> Puede alejar a no creyentes</li>
+          <li><strong>Dependencia de 3 personas:</strong> Si uno se baja, colapsa la comunicacion</li>
+          <li><strong>Presupuesto limitado:</strong> Sin budgets de marketing como universidades privadas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Diagnóstico de voz -->
+    <div style="margin-top: 3rem;">
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1rem;">Diagnostico de voz</h3>
+      <div class="grid-2">
+        <div class="pullquote">
+          "Educamos personas: en la fe, en comunidad y para el servicio."
+          <p style="font-family: var(--font-body); font-style: normal; font-size: 0.85rem; color: var(--texto-mid); margin-top: 0.5rem;">— Voz de la landing page: formal-institucional, espiritual, pulida</p>
+        </div>
+        <div class="pullquote">
+          "Te damos la bienvenida al Instituto Nuestra Senora de Fatima!"
+          <p style="font-family: var(--font-body); font-style: normal; font-size: 0.85rem; color: var(--texto-mid); margin-top: 0.5rem;">— Voz de las redes: informativa, basica, esporadica. Sin estrategia.</p>
+        </div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--texto-mid); max-width: 65ch;">
+        La landing tiene una voz editorial muy pulida. Las redes tienen una voz mucho mas basica.
+        No hay un "tono de marca" documentado que unifique ambas. <strong>El rebranding debe cerrar esta brecha.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     02 — IDENTIDAD VISUAL
+     ==================================================================== -->
+<section class="section band" id="identidad">
+  <div class="container">
+    <span class="section-label">02 — Identidad</span>
+    <h2 class="section-title">Sistema de Identidad Visual</h2>
+    <p class="section-lede">
+      Handle unificado, paleta de colores, tipografia, logotipo y templates
+      para todas las plataformas digitales.
+    </p>
+
+    <!-- Handle unificado -->
+    <div style="margin-bottom: 3rem;">
+      <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Handle unificado</h3>
+      <div class="grid-2">
+        <div class="card card-borgona">
+          <div class="card-label">Antes</div>
+          <h3>Inconsistencia total</h3>
+          <p>Instagram: @fatimaterciario<br>
+             YouTube: @TerciarioFatima<br>
+             TikTok: No existe<br>
+             Web: terciariofatimasoldati.edu.ar</p>
+        </div>
+        <div class="card card-dorado">
+          <div class="card-label">Despues</div>
+          <h3>@institutofatima</h3>
+          <p>Un handle, todas las plataformas.<>
+             Corto, memorable, busca la marca por nombre.<br>
+             Instagram, YouTube, TikTok, Facebook.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paleta -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Paleta de colores</h3>
+    <p style="font-size: 0.92rem; color: var(--texto-mid); margin-bottom: 1rem; max-width: 60ch;">
+      La paleta mantiene la esencia marianista (borgona + dorado) pero es mas versatil para redes sociales.
+    </p>
+
+    <div class="palette-row">
+      <div class="palette-swatch light-text" style="background: #6A2517;">
+        <span class="swatch-name">Borgona Fatima</span>
+        <span class="swatch-hex">#6A2517</span>
+      </div>
+      <div class="palette-swatch dark-text" style="background: #A67C3D;">
+        <span class="swatch-name">Dorado Marianista</span>
+        <span class="swatch-hex">#A67C3D</span>
+      </div>
+      <div class="palette-swatch dark-text" style="background: #F5EDE3;">
+        <span class="swatch-name">Crema Catedral</span>
+        <span class="swatch-hex">#F5EDE3</span>
+      </div>
+      <div class="palette-swatch light-text" style="background: #1B5E4B;">
+        <span class="swatch-name">Verde Comunidad</span>
+        <span class="swatch-hex">#1B5E4B</span>
+      </div>
+      <div class="palette-swatch light-text" style="background: #1E3A5F;">
+        <span class="swatch-name">Azul Confianza</span>
+        <span class="swatch-hex">#1E3A5F</span>
+      </div>
+    </div>
+
+    <p style="font-size: 0.82rem; color: var(--texto-light); margin-bottom: 0.5rem;">
+      <strong>Regla de uso:</strong> 70% Crema (fondo) | 20% Borgona + Verde/Azul (elementos) | 10% Dorado + acentos (destaques)
+    </p>
+
+    <div class="palette-row">
+      <div class="palette-swatch light-text" style="background: #C4567A;">
+        <span class="swatch-name">Rosa Vocacion</span>
+        <span class="swatch-hex">#C4567A</span>
+      </div>
+      <div class="palette-swatch light-text" style="background: #D4763A;">
+        <span class="swatch-name">Naranja Energia</span>
+        <span class="swatch-hex">#D4763A</span>
+      </div>
+      <div class="palette-swatch light-text" style="background: #2D8B6E;">
+        <span class="swatch-name">Verde Salud</span>
+        <span class="swatch-hex">#2D8B6E</span>
+      </div>
+      <div class="palette-swatch light-text" style="background: #4A8DB7;">
+        <span class="swatch-name">Celeste Prevencion</span>
+        <span class="swatch-hex">#4A8DB7</span>
+      </div>
+      <div class="palette-swatch light-text" style="background: #7B4D8A;">
+        <span class="swatch-name">Violeta Espiritu</span>
+        <span class="swatch-hex">#7B4D8A</span>
+      </div>
+    </div>
+    <p style="font-size: 0.82rem; color: var(--texto-light); margin-bottom: 2.5rem;">
+      <strong>Acentos por carrera:</strong> Rosa = Profesorados | Verde Salud = Enfermeria | Celeste = Seguridad | Violeta = Espiritualidad | Naranja = Eventos
+    </p>
+
+    <!-- Tipografia -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Tipografia para redes</h3>
+    <div class="grid-3" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="card-label">Titulares</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem;">Playfair Display</h3>
+        <p>Bold 700. Serif elegante, editorial. Max 6 palabras en titulo.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Subtitulos y cuerpo</div>
+        <h3 style="font-family: 'DM Sans', sans-serif; font-size: 1.4rem; font-weight: 600;">DM Sans</h3>
+        <p>Medium 500 / Regular 400. Sans-serif limpia, moderna.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Datos y notas</div>
+        <h3 style="font-family: 'DM Mono', monospace; font-size: 1.3rem;">DM Mono</h3>
+        <p>Regular 400. Etiquetas, numeracion, hashtags.</p>
+      </div>
+    </div>
+
+    <!-- Jerarquia -->
+    <div class="card" style="margin-bottom: 2.5rem; border-left: 4px solid var(--borgona);">
+      <h3 style="margin-bottom: 0.8rem;">Jerarquia tipografica</h3>
+      <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.3rem;">Titular: Playfair Display 700</div>
+      <div style="font-family: var(--font-body); font-size: 1.2rem; font-weight: 500; margin-bottom: 0.3rem;">Subtitulo: DM Sans Medium 500</div>
+      <div style="font-family: var(--font-body); font-size: 1rem; margin-bottom: 0.3rem;">Cuerpo: DM Sans Regular 400</div>
+      <div style="font-family: var(--font-body); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem;">Datos: DM Sans Bold 700</div>
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--texto-light);">Etiquetas: DM Mono Regular 400</div>
+    </div>
+
+    <!-- Templates Instagram -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Templates para Instagram</h3>
+    <div class="grid-2">
+      <div class="card" style="border-top: 4px solid var(--borgona);">
+        <div class="card-label">Post informativo</div>
+        <h3>Carreras, fechas, inscripciones</h3>
+        <p>Fondo borgona solido. Titular en crema (Playfair). Icono dorado con numero o emoji. Logo esquina inferior derecha.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--dorado);">
+        <div class="card-label">Post de testimonio</div>
+        <h3>Estudiantes y egresados</h3>
+        <p>Foto en frame circular. Fondo crema con borde borgona. Cita en italica. Nombre y carrera debajo.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--verde);">
+        <div class="card-label">Post de dato/estadistica</div>
+        <h3>Fatima en Cifras</h3>
+        <p>Fondo verde o azul. Numero grande en dorado. Explicacion breve en crema. Hashtag #FatimaEnCifras.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--rosa);">
+        <div class="card-label">Reel / Short (vertical)</div>
+        <h3>30-60 segundos</h3>
+        <p>Fondo borgona arriba (20%) con logo. Video/frame central. Subtitulos automaticos. CTA abajo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     03 — VOZ Y TONO
+     ==================================================================== -->
+<section class="section" id="voz">
+  <div class="container">
+    <span class="section-label">03 — Voz de marca</span>
+    <h2 class="section-title">Guia de Voz y Tono</h2>
+    <p class="section-lede">
+      Principios de comunicacion, vocabulario de marca, formulas de copy
+      y reglas de estilo para toda la comunicacion.
+    </p>
+
+    <!-- Pilares -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Los 4 pilares de la voz Fatima</h3>
+    <div class="grid-4" style="margin-bottom: 2.5rem;">
+      <div class="card card-borgona" style="text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 0.3rem;">&#9825;</div>
+        <h3>Cercania</h3>
+        <p>Hablamos como comunidad, no como institucion fria</p>
+      </div>
+      <div class="card card-dorado" style="text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 0.3rem;">&#9733;</div>
+        <h3>Vocacion</h3>
+        <p>Todo nace del proposito de formar personas</p>
+      </div>
+      <div class="card" style="text-align: center; border-top: 4px solid var(--verde);">
+        <div style="font-size: 2rem; margin-bottom: 0.3rem;">&#9829;</div>
+        <h3>Autenticidad</h3>
+        <p>Somos reales, del barrio, con historia genuina</p>
+      </div>
+      <div class="card" style="text-align: center; border-top: 4px solid var(--dorado);">
+        <div style="font-size: 2rem; margin-bottom: 0.3rem;">&#10010;</div>
+        <h3>Fe en accion</h3>
+        <p>La espiritualidad se vive, no se predica</p>
+      </div>
+    </div>
+
+    <!-- Matriz de tono -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Matriz de tono</h3>
+    <table class="data-table" style="margin-bottom: 2.5rem;">
+      <thead>
+        <tr><th>Contexto</th><th>Tono</th><th>Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Inscripciones/Carreras</strong></td>
+          <td>Informativo + cercano</td>
+          <td>"Las inscripciones ya abrieron. Si queres ser parte de Fatima, escribinos."</td>
+        </tr>
+        <tr>
+          <td><strong>Vida estudiantil</strong></td>
+          <td>Entusiasta + genuino</td>
+          <td>"Hoy los chicos de Enfermeria practicaron en el gabinete. Asi se vive Fatima."</td>
+        </tr>
+        <tr>
+          <td><strong>Espiritualidad</strong></td>
+          <td>Reflexivo + profundo</td>
+          <td>"El P. Chaminade decia que la fe se vive en comunidad. Asi lo sentimos."</td>
+        </tr>
+        <tr>
+          <td><strong>Datos/Logros</strong></td>
+          <td>Institucional + orgulloso</td>
+          <td>"4 carreras. 306 estudiantes. 11 anios formando profesionales en Villa Soldati."</td>
+        </tr>
+        <tr>
+          <td><strong>Emergencias</strong></td>
+          <td>Serio + empatico</td>
+          <td>"Nuestro pensamiento esta con la comunidad. Estamos aqui."</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Vocabulario -->
+    <div class="grid-2" style="margin-bottom: 2.5rem;">
+      <div class="card" style="border-left: 4px solid var(--verde);">
+        <div class="card-label">Palabras que usamos</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+          <span class="badge badge-fill">Comunidad</span>
+          <span class="badge badge-fill">Acompanar</span>
+          <span class="badge badge-fill">Vocacion</span>
+          <span class="badge badge-fill">Formar</span>
+          <span class="badge badge-fill">Barrio</span>
+          <span class="badge badge-fill">Servicio</span>
+          <span class="badge badge-fill">Primeros pasos</span>
+          <span class="badge badge-fill">Fe en accion</span>
+        </div>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--rosa);">
+        <div class="card-label">Palabras que evitamos</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+          <span class="badge" style="text-decoration: line-through;">Clientes</span>
+          <span class="badge" style="text-decoration: line-through;">Productos</span>
+          <span class="badge" style="text-decoration: line-through;">Exito</span>
+          <span class="badge" style="text-decoration: line-through;">Mercado laboral</span>
+          <span class="badge" style="text-decoration: line-through;">Competir</span>
+          <span class="badge" style="text-decoration: line-through;">Institucion</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulas de copy -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Formulas de copy</h3>
+    <div class="recipe-box">
+      <h4>Post informativo</h4>
+      <pre>[GANCHO en 1ra linea]
+[CONTEXTO — que pasa y por que importa]
+[DETALLE — fechas, requisitos, datos]
+[CTA — que hacer ahora]
+
+Ejemplo:
+"Las inscripciones para 2026 ya estan abiertas.
+Si queres estudiar Enfermeria, Seguridad e Higiene,
+Nivel Inicial o Primario, este es tu momento.
+Acercate a Mariano Acosta 2920 o escribinos por DM."</pre>
+    </div>
+    <div class="recipe-box">
+      <h4>Testimonio</h4>
+      <pre>"[CITA DEL ESTUDIANTE en primera persona]"
+[NOMBRE] — [Carrera], [anio de ingreso]
+En Fatima, cada historia cuenta.
+
+Ejemplo:
+"Yo soy la primera de mi familia en estudiar algo
+despues del secundario. Aca me senti acompanada
+desde el primer dia."
+Camila — Enfermeria, ingreso 2023
+En Fatima, cada historia cuenta.</pre>
+    </div>
+    <div class="recipe-box">
+      <h4>Dato / Estadistica</h4>
+      <pre>[DATO GRANDE en 1ra linea]
+[CONTEXTO — que significa ese numero]
+[FUENTE o referencia]
+
+Ejemplo:
+306
+Eso somos en Fatima: 306 personas formandose
+para servir a sus comunidades.
+#FatimaEnCifras</pre>
+    </div>
+    <div class="recipe-box">
+      <h4>Reel / Short</h4>
+      <pre>GANCHO (2 seg): pregunta o dato impactante
+DESARROLLO (15-45 seg): explicacion breve
+CIERRE (5 seg): CTA + marca
+
+Ejemplo Reel Enfermeria:
+"Sabias que el 60% del tiempo de una enfermera
+es escuchar al paciente?"
+"La escucha activa es una de las primeras cosas
+que aprendes en Fatima..."
+"Si queres saber mas, segui @institutofatima"</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     04 — ESTRATEGIA DE CONTENIDO
+     ==================================================================== -->
+<section class="section band" id="estrategia">
+  <div class="container">
+    <span class="section-label">04 — Estrategia</span>
+    <h2 class="section-title">Estrategia de Contenido</h2>
+    <p class="section-lede">
+      Pilares de contenido, formatos por plataforma, flujo de trabajo y colaboraciones.
+    </p>
+
+    <!-- Objetivos -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Objetivos (6 meses)</h3>
+    <table class="data-table" style="margin-bottom: 2.5rem;">
+      <thead><tr><th>Objetivo</th><th>KPI</th><th>Meta mes 6</th></tr></thead>
+      <tbody>
+        <tr><td>Presencia en redes</td><td>Seguidores Instagram</td><td><strong>1.500+</strong></td></tr>
+        <tr><td>Consistencia</td><td>Posts/semana</td><td><strong>Min. 4</strong></td></tr>
+        <tr><td>Engagement</td><td>Tasa interaccion</td><td><strong>5%+</strong></td></tr>
+        <tr><td>YouTube</td><td>Suscriptores</td><td><strong>300+</strong></td></tr>
+        <tr><td>Leads</td><td>Consultas por DM/formulario</td><td><strong>30/mes</strong></td></tr>
+        <tr><td>Brand awareness</td><td>Alcance promedio</td><td><strong>2.000+</strong></td></tr>
+      </tbody>
+    </table>
+
+    <!-- 5 Pillars -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">5 Ejes de contenido (Pillar Content)</h3>
+    <div class="grid-3" style="margin-bottom: 2.5rem;">
+      <div class="card card-borgona">
+        <div class="card-label">30%</div>
+        <h3>Fatima Carreras</h3>
+        <p>Presentacion de cada carrera, que se aprende, como se cursa, perfil del egresado.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--dorado);">
+        <div class="card-label">25%</div>
+        <h3>Fatima Testimonios</h3>
+        <p>Historias de estudiantes primera generacion, egresados trabajando, dia a dia.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--violeta);">
+        <div class="card-label">20%</div>
+        <h3>Fatima Valores</h3>
+        <p>Espiritualidad marianista, reflexiones eticas, servicio comunitario.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--verde);">
+        <div class="card-label">15%</div>
+        <h3>Fatima en Cifras</h3>
+        <p>Datos del instituto, estadisticas de carreras, logros, mercado laboral.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--naranja);">
+        <div class="card-label">10%</div>
+        <h3>Fatima Vida</h3>
+        <p>Eventos, actividades, actos, el instituto como espacio, Villa Soldati.</p>
+      </div>
+    </div>
+
+    <!-- Frecuencia -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Frecuencia por plataforma</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-label">Instagram</div>
+        <h3>4 posts + stories diarias</h3>
+        <p><strong>Lunes:</strong> Carrusel informativo<br>
+           <strong>Miercoles:</strong> Reel testimonio<br>
+           <strong>Viernes:</strong> Post valores<br>
+           <strong>Domingo:</strong> Reel vida/cifras<br>
+           <strong>Stories:</strong> Encuestas, BTS, datos</p>
+      </div>
+      <div class="card">
+        <div class="card-label">YouTube</div>
+        <h3>1 video + 3 shorts/semana</h3>
+        <p><strong>Lunes:</strong> Clase Express (8-15min)<br>
+           <strong>Martes:</strong> Short educativo<br>
+           <strong>Miercoles:</strong> Short testimonio<br>
+           <strong>Viernes:</strong> Historia Fatima o Short<br>
+           <strong>Sabado:</strong> Short espiritual</p>
+      </div>
+      <div class="card">
+        <div class="card-label">TikTok</div>
+        <h3>3 videos/semana</h3>
+        <p><strong>Martes:</strong> Dato rapido (30s)<br>
+           <strong>Jueves:</strong> Microtestimonio<br>
+           <strong>Sabado:</strong> Trend adaptado<br>
+           <strong>Formato:</strong> Vertical, 30-60s<br>
+           <strong>Estilo:</strong> Directo, sin filtro</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     05 — CALENDARIO
+     ==================================================================== -->
+<section class="section" id="calendario">
+  <div class="container">
+    <span class="section-label">05 — Calendario</span>
+    <h2 class="section-title">Calendario Editorial Mensual</h2>
+    <p class="section-lede">
+      Calendario tipo de 4 semanas con guiones detallados, asignacion de roles
+      y plantillas de diseno para cada tipo de post.
+    </p>
+
+    <div class="tabs" id="calTabs">
+      <button class="tab-btn active" data-tab="semana1">Semana 1</button>
+      <button class="tab-btn" data-tab="semana2">Semana 2</button>
+      <button class="tab-btn" data-tab="semana3">Semana 3</button>
+      <button class="tab-btn" data-tab="semana4">Semana 4</button>
+    </div>
+
+    <!-- SEMANA 1 -->
+    <div class="tab-panel active" id="semana1">
+      <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Semana 1: Lanzamiento de identidad</h3>
+      <table class="data-table">
+        <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Contenido</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Lunes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge">Carrusel</span></td>
+            <td>"Conoce las 4 carreras de Instituto Fatima" — 6 slides con cada carrera + CTA</td>
+          </tr>
+          <tr>
+            <td><strong>Martes</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Encuesta</span></td>
+            <td>"Que carrera te interesa?" + sticker de pregunta</td>
+          </tr>
+          <tr>
+            <td><strong>Miercoles</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge badge-borgona">Reel 30s</span></td>
+            <td>Testimonio: "La primera de mi familia en estudiar algo despues del secundario"</td>
+          </tr>
+          <tr>
+            <td><strong>Jueves</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">BTS</span></td>
+            <td>"Asi arranca el dia en Fatima" — fotos de la entrada, aulas, encuesta</td>
+          </tr>
+          <tr>
+            <td><strong>Viernes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge">Post imagen</span></td>
+            <td>Frase: "Educar es acompanar a cada persona en su camino" — fondo borgona</td>
+          </tr>
+          <tr>
+            <td><strong>Sabado</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge badge-borgona">Reel 15s</span></td>
+            <td>Montaje rapido de la semana: clases, risas, pasillo, biblioteca</td>
+          </tr>
+          <tr>
+            <td><strong>Domingo</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Reflexion</span></td>
+            <td>"La fe se vive en comunidad. Buen domingo."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEMANA 2 -->
+    <div class="tab-panel" id="semana2">
+      <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Semana 2: Enfermeria destacada</h3>
+      <table class="data-table">
+        <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Contenido</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Lunes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge">Carrusel 5 slides</span></td>
+            <td>"Enfermeria en Fatima: mas que una carrera, una vocacion"</td>
+          </tr>
+          <tr>
+            <td><strong>Martes</strong></td>
+            <td>TikTok</td>
+            <td><span class="badge badge-borgona">Dato 30s</span></td>
+            <td>"Sabias que un enfermero pasa el 60% del tiempo escuchando al paciente?"</td>
+          </tr>
+          <tr>
+            <td><strong>Miercoles</strong></td>
+            <td>YouTube</td>
+            <td><span class="badge badge-fill">Clase Express 10min</span></td>
+            <td>"Que es la Enfermeria comunitaria?" — docente de Enfermeria</td>
+          </tr>
+          <tr>
+            <td><strong>Jueves</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">BTS</span></td>
+            <td>"Un dia en la vida de un estudiante de Enfermeria" — fotos reales</td>
+          </tr>
+          <tr>
+            <td><strong>Viernes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge badge-borgona">Reel 45s</span></td>
+            <td>Estudiante de Enfermeria contando su dia a dia en el gabinete</td>
+          </tr>
+          <tr>
+            <td><strong>Sabado</strong></td>
+            <td>TikTok</td>
+            <td><span class="badge badge-borgona">Trend 30s</span></td>
+            <td>"POV: sos estudiante de Enfermeria en Fatima" — montaje real</td>
+          </tr>
+          <tr>
+            <td><strong>Domingo</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Reflexion</span></td>
+            <td>"Cuidar al otro es la mejor forma de servir."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEMANA 3 -->
+    <div class="tab-panel" id="semana3">
+      <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Semana 3: Seguridad e Higiene + Comunidad</h3>
+      <table class="data-table">
+        <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Contenido</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Lunes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge">Carrusel 5 slides</span></td>
+            <td>"Seguridad e Higiene: la carrera que Villa Soldati necesita"</td>
+          </tr>
+          <tr>
+            <td><strong>Martes</strong></td>
+            <td>TikTok</td>
+            <td><span class="badge badge-borgona">Dato 30s</span></td>
+            <td>"El 80% de los accidentes laborales se pueden prevenir"</td>
+          </tr>
+          <tr>
+            <td><strong>Miercoles</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge badge-borgona">Reel 30s</span></td>
+            <td>Recorrido por el instituto con musica suave: "Asi es Fatima por dentro"</td>
+          </tr>
+          <tr>
+            <td><strong>Jueves</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Encuesta</span></td>
+            <td>"Sabes que hace un tecnico en Seguridad e Higiene?" + dato</td>
+          </tr>
+          <tr>
+            <td><strong>Viernes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge">Post imagen</span></td>
+            <td>Frase: "Prevenir es un acto de amor al otro."</td>
+          </tr>
+          <tr>
+            <td><strong>Sabado</strong></td>
+            <td>YouTube</td>
+            <td><span class="badge badge-fill">Shorts x3</span></td>
+            <td>"3 datos sobre seguridad" + "Un dia de cursado" + "Consejo del director"</td>
+          </tr>
+          <tr>
+            <td><strong>Domingo</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Descanso</span></td>
+            <td>"Domingo de descanso. Manana seguimos formando profesionales."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEMANA 4 -->
+    <div class="tab-panel" id="semana4">
+      <h3 style="font-family: var(--font-display); margin-bottom: 1rem;">Semana 4: Nivel Inicial + Primario + Cierre</h3>
+      <table class="data-table">
+        <thead><tr><th>Dia</th><th>Plataforma</th><th>Formato</th><th>Contenido</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Lunes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge">Carrusel</span></td>
+            <td>"Ser docente es elegir cambiar el mundo, un nino a la vez" — Inicial + Primaria</td>
+          </tr>
+          <tr>
+            <td><strong>Martes</strong></td>
+            <td>TikTok</td>
+            <td><span class="badge badge-borgona">Testimonio 30s</span></td>
+            <td>Ex-estudiante docente contando donde trabaja ahora</td>
+          </tr>
+          <tr>
+            <td><strong>Miercoles</strong></td>
+            <td>YouTube</td>
+            <td><span class="badge badge-fill">Entrevista 12min</span></td>
+            <td>Egresado docente trabajando en escuela publica — formato conversacional</td>
+          </tr>
+          <tr>
+            <td><strong>Jueves</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Carrera</span></td>
+            <td>"Queres ser maestro? Conoce el Profesorado de Primaria" + dato 2026</td>
+          </tr>
+          <tr>
+            <td><strong>Viernes</strong></td>
+            <td>Instagram</td>
+            <td><span class="badge badge-borgona">Reel 60s</span></td>
+            <td>"306 estudiantes. 60 docentes. 4 carreras. 1 comunidad." — numeros animados</td>
+          </tr>
+          <tr>
+            <td><strong>Sabado</strong></td>
+            <td>TikTok + IG Reel</td>
+            <td><span class="badge badge-borgona">Montaje</span></td>
+            <td>Resumen del mes: mejores momentos. "Asi fue un mes en Fatima"</td>
+          </tr>
+          <tr>
+            <td><strong>Domingo</strong></td>
+            <td>Instagram Stories</td>
+            <td><span class="badge badge-fill">Cierre</span></td>
+            <td>"Gracias por ser parte de esta comunidad. Te esperamos en Fatima."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     06 — GUÍA YOUTUBE
+     ==================================================================== -->
+<section class="section band-dark" id="youtube">
+  <div class="container">
+    <span class="section-label">06 — YouTube</span>
+    <h2 class="section-title">Guia de Contenido para YouTube</h2>
+    <p class="section-lede">
+      Estrutura del canal, formatos de video, protocolo de grabacion,
+      SEO y diseño de thumbnails.
+    </p>
+
+    <!-- Identidad del canal -->
+    <div class="grid-2" style="margin-bottom: 2.5rem;">
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Identidad del canal</div>
+        <h3 style="color: var(--crema);">Instituto Fatima — Villa Soldati</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent);">
+          Handle: @institutofatima<br>
+          Carreras: Enfermeria | Seguridad e Higiene | Nivel Inicial | Nivel Primario<br>
+          Somos parte de la Red Educativa Marianista.
+        </p>
+      </div>
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Playlists oficiales</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+          <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Clases Express</span>
+          <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Historias Fatima</span>
+          <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Fatima en 60s</span>
+          <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Espiritualidad</span>
+          <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Vida en Fatima</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formatos -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: var(--crema); margin-bottom: 1rem;">Formatos de video</h3>
+    <div class="grid-2" style="margin-bottom: 2.5rem;">
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Clase Express</div>
+        <h3 style="color: var(--crema);">Horizontal, 8-15 minutos</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent);">
+          <strong>Estructura:</strong><br>
+          [0:00-0:30] Intro — titular + docente<br>
+          [0:30-2:00] Contexto — por que importa<br>
+          [2:00-10:00] Desarrollo — explicacion + ejemplos<br>
+          [10:00-12:00] Cierre — resumen + CTA
+        </p>
+      </div>
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Historia Fatima</div>
+        <h3 style="color: var(--crema);">Horizontal, 10-20 minutos</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent);">
+          <strong>Estructura:</strong><br>
+          [0:00-0:30] Hook — frase del invitado<br>
+          [0:30-2:00] Contexto — quien es<br>
+          [2:00-12:00] Entrevista — 5 preguntas guiadas<br>
+          [12:00-14:00] Cierre — mensaje + CTA
+        </p>
+      </div>
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Fatima en 60 Segundos</div>
+        <h3 style="color: var(--crema);">Vertical (Shorts), 30-60 segundos</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent);">
+          <strong>Tipos:</strong><br>
+          1. Dato rapido — "Sabias que...?"<br>
+          2. Tip — "3 cosas que necesitas saber"<br>
+          3. Frase — texto animado + musica<br>
+          4. Mini testimo — 1 frase de estudiante<br>
+          5. Detras de camaras — momento real
+        </p>
+      </div>
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Espiritualidad Marianista</div>
+        <h3 style="color: var(--crema);">Vertical, 1-3 minutos</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent);">
+          <strong>Estructura:</strong><br>
+          [0:00-0:10] Tema — "Hoy vamos a reflexionar"<br>
+          [0:10-1:30] Desarrollo — reflexion breve<br>
+          [1:30-2:00] Cierre — oracion o frase final<br>
+          <strong>Ambiente:</strong> Tranquilo, luz suave, voz pausada
+        </p>
+      </div>
+    </div>
+
+    <!-- SEO y Thumbnails -->
+    <div class="grid-2">
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">SEO para YouTube</div>
+        <h3 style="color: var(--crema); margin-bottom: 0.5rem;">Tags sugeridos</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent); font-family: var(--font-mono); font-size: 0.82rem;">
+          instituto fatima, terciario fatima, villa soldati,<br>
+          instituto terciario, enfermeria, seguridad e higiene,<br>
+          profesorado nivel inicial, profesorado nivel primario,<br>
+          educacion terciaria, marianistas, buenos aires
+        </p>
+      </div>
+      <div class="card" style="background: color-mix(in srgb, var(--crema) 8%, transparent); border-color: color-mix(in srgb, var(--dorado) 30%, transparent);">
+        <div class="card-label" style="color: var(--dorado-light);">Thumbnail Design</div>
+        <h3 style="color: var(--crema); margin-bottom: 0.5rem;">Template base</h3>
+        <p style="color: color-mix(in srgb, var(--crema) 75%, transparent);">
+          Fondo: Degradado borgona a dorado<br>
+          Foto: Docente/estudiante, rostro visible<br>
+          Texto: Playfair Bold, crema, 48-64px<br>
+          Maximo: 5 palabras en el thumbnail<br>
+          Logo: Esquina inferior derecha
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     07 — GUIONES REELS
+     ==================================================================== -->
+<section class="section" id="reels">
+  <div class="container">
+    <span class="section-label">07 — Produccion</span>
+    <h2 class="section-title">Guiones de Reels y Shorts</h2>
+    <p class="section-lede">
+      7 guiones completos listos para grabar. Todos en formato vertical (1080x1920),
+      adaptables a Instagram Reels, YouTube Shorts o TikTok.
+    </p>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 1: "La primera generacion"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Testimonio · 45s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:03] GANCHO
+TEXTO EN PANTALLA (Playfair, crema sobre borgona):
+"Soy la primera de mi familia en estudiar algo despues del secundario."
+MUSICA: Inspiracional suave, crescendo
+
+[0:03-0:15] DESARROLLO
+ESTUDIANTE hablando a camara (primer plano):
+"Cuando llegue a Fatima, no sabia si iba a poder.
+Trabajaba y estudiaba al mismo tiempo. Pero los
+profesores me dijeron: 'vos podes, y nosotros te acompanamos'."
+
+[0:15-0:30] CIERRE
+ESTUDIANTE: "Hoy estoy en segundo anio de Enfermeria. Y no me arrepiento de nada."
+TEXTO: "En Fatima, cada historia cuenta."
+LOGO: Instituto Fatima + @institutofatima
+
+[0:30-0:45] CTA
+FONDO BORGONA: "Queres conocer tu historia? Escribinos por DM."
+</pre>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 2: "3 datos de Enfermeria"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Carreras · 35s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:03] GANCHO
+TEXTO (letras grandes apareciendo): "3 cosas que NO sabias sobre Enfermeria"
+MUSICA: Ritmica, energica
+
+[0:03-0:12] DATO 1 — "Un enfermero pasa el 60% del tiempo ESCUCHANDO al paciente."
+[0:12-0:21] DATO 2 — "La enfermeria comunitaria llega a donde los hospitales no llegan."
+[0:21-0:28] DATO 3 — "En Fatima aprendes cuidado integral: cuerpo, mente y espiritu."
+[0:28-0:35] CIERRE — "Queres saber mas? Segui @institutofatima"
+</pre>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 3: "Asi es Fatima por dentro"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Vida · 20s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:03] Entrada del instituto — MUSICA upbeat, trending sound
+[0:03-0:07] Pasillo con estudiantes, risas
+[0:07-0:12] Aula con profesor explicando
+[0:12-0:16] Biblioteca, estudiantes estudiando
+[0:16-0:20] TEXTO: "Fatima no es solo un instituto. Es una comunidad." + LOGO
+</pre>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 4: "El sentido de la prevencion"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Valores + Carreras · 40s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:05] GANCHO — TEXTO: "Prevenir un accidente cuesta menos que lamentarlo."
+[0:05-0:20] DOCENTE de Seguridad e Higiene:
+            "En Seguridad e Higiene aprendemos a ver lo que otros no ven.
+             Un cable suelto, una escalera mal ubicada...
+             Prevenir es un acto de amor al otro."
+[0:20-0:35] B-ROLL: aula con maqueta, estudiante revisando plano, simulacro
+[0:35-0:40] CIERRE — "Formate en Seguridad e Higiene. Inscripciones abiertas."
+</pre>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 5: "La fe se vive en comunidad"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Espiritualidad · 30s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:05] TEXTO (dorado sobre borgona): "La fe no se predica. Se vive."
+[0:05-0:15] VOZ EN OFF: "El P. Chaminade decia que la fe se construye en comunidad.
+            En Fatima, eso se vive todos los dias."
+[0:15-0:25] IMAGENES: Comunidad reunida, manos unidas, momento espiritual
+[0:25-0:30] TEXTO: "Educar personas, en la fe, en comunidad y para el servicio."
+</pre>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 6: "De estudiante a profe"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Testimonio · 50s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:05] TEXTO: "De estudiante a profe: mi primera clase"
+[0:05-0:25] EGRESADO: "Hace tres anios era estudiante de Nivel Inicial en Fatima.
+            Hoy soy docente en una escuela publica de Villa Soldati."
+[0:25-0:40] B-ROLL: foto como estudiante, foto dando clase, escuela
+[0:40-0:50] TEXTO: "Formate en Fatima. Cambia vidas. Incluyendo la tuya."
+</pre>
+      </div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header">
+        <h4>Reel 7: "La carrera mas corta con mas salida"</h4>
+        <span class="badge" style="border-color: var(--dorado-light); color: var(--dorado-light);">Carreras · 30s</span>
+      </div>
+      <div class="script-body">
+<pre>[0:00-0:05] GANCHO: "La carrera de nivel superior con mas salida laboral en Villa Soldati"
+[0:05-0:15] DATOS: "Seguridad e Higiene: 2 anios, titulo oficial, alta demanda."
+            Numero: "80% de los egresados trabajando en el primer anio"
+[0:15-0:25] QUE APRENDES: "Prevencion de riesgos, normativa, cultura del cuidado."
+[0:25-0:30] CIERRE: "Inscripciones abiertas. Escribinos por DM."
+</pre>
+      </div>
+    </div>
+
+    <!-- Tips de produccion -->
+    <div style="margin-top: 2rem;">
+      <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Checklist de produccion</h3>
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid var(--verde);">
+          <div class="card-label">Pre-grabacion</div>
+          <ul class="checklist">
+            <li>Celular con bateria > 50%</li>
+            <li>Espacio limpio y ordenado</li>
+            <li>Iluminacion natural o aro de led</li>
+            <li>Micfono probado (30 seg de prueba)</li>
+            <li>Tema y guion revisado</li>
+            <li>Ropa con colores de la marca</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--dorado);">
+          <div class="card-label">Post-produccion</div>
+          <ul class="checklist">
+            <li>Subtitulos SIEMPRE (CapCut automatico)</li>
+            <li>Colores de la marca en textos</li>
+            <li>Musica de fondo al 20-30% del volumen</li>
+            <li>Duracion maxima: 60 segundos</li>
+            <li>CTA claro en los ultimos 5 segundos</li>
+            <li>Thumbnail con rostro humano</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     08 — GROWTH
+     ==================================================================== -->
+<section class="section band" id="growth">
+  <div class="container">
+    <span class="section-label">08 — Growth</span>
+    <h2 class="section-title">Estrategia de Growth y Metricas</h2>
+    <p class="section-lede">
+      KPIs por plataforma, tacticas de crecimiento organico, cronograma de
+      implementacion y matriz de medicion mensual.
+    </p>
+
+    <!-- Fases -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Cronograma de implementacion</h3>
+    <div class="timeline" style="margin-bottom: 2.5rem;">
+      <div class="timeline-item">
+        <h4>Semana 1-2: Fundamentos</h4>
+        <p>Crear @institutofatima en todas las plataformas. Disenar templates en Canva. Crear banner de YouTube. Configurar Linktree. Preparar primeros 10 temas.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Semana 3-4: Primer contenido</h4>
+        <p>Publicar primer carrusel. Grabar primer Reel de testimonio. Subir primera Clase Express. Crear primeros 3 TikToks. Activar stories diarias.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Mes 2: Consistencia</h4>
+        <p>Mantener calendario de 4 posts/semana. Primera colaboracion con egresado. Analizar primeras metricas. Ajustar horarios. Crear highlights.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Mes 3: Crecimiento</h4>
+        <p>Lanzar reto #FatimaElije. Primera colaboracion con Red Marianista. Optimizar thumbnails. Implementar UGC activo.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Mes 4-6: Consolidacion</h4>
+        <p>Campaña de inscripciones 2027. Serie de testimonios de egresados. Evento en vivo. Evaluacion semestral completa.</p>
+      </div>
+    </div>
+
+    <!-- KPIs por plataforma -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">KPIs por plataforma (Meta mes 6)</h3>
+    <div class="grid-3" style="margin-bottom: 2.5rem;">
+      <div class="card card-borgona">
+        <div class="card-label" style="color: var(--dorado-light);">Instagram</div>
+        <p><strong>1.500+</strong> seguidores<br>
+           <strong>2.000+</strong> alcance promedio<br>
+           <strong>5%+</strong> tasa de interaccion<br>
+           <strong>20+</strong> saves por post<br>
+           <strong>5+</strong> DMs por semana</p>
+      </div>
+      <div class="card card-dorado">
+        <div class="card-label">YouTube</div>
+        <p><strong>300+</strong> suscriptores<br>
+           <strong>200+</strong> vistas por video<br>
+           <strong>1.000+</strong> watch time mensual<br>
+           <strong>5%+</strong> CTR thumbnail<br>
+           <strong>500+</strong> vistas por Short</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--verde);">
+        <div class="card-label">TikTok</div>
+        <p><strong>500+</strong> seguidores<br>
+           <strong>1.000+</strong> vistas por video<br>
+           <strong>40%+</strong> tasa de completacion<br>
+           <strong>3</strong> publicaciones/semana</p>
+      </div>
+    </div>
+
+    <!-- Tacticas de crecimiento -->
+    <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Tacticas de crecimiento organico</h3>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Hashtag strategy</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem;">
+          <span class="badge">#InstitutoFatima</span>
+          <span class="badge">#FatimaVillaSoldati</span>
+          <span class="badge">#FatimaCarreras</span>
+          <span class="badge">#EducarEnFatima</span>
+          <span class="badge">#FatimaTestimonios</span>
+          <span class="badge">#FatimaEnCifras</span>
+          <span class="badge">#FatimaComunidad</span>
+          <span class="badge">#VillaSoldati</span>
+          <span class="badge">#EducacionSuperior</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Engagement con la comunidad</div>
+        <ul class="checklist">
+          <li>Responder TODOS los comentarios (max 2h)</li>
+          <li>Responder TODOS los DMs (max 4h)</li>
+          <li>Likear y comentar posts de estudiantes/egresados</li>
+          <li>Repostear contenido con #InstitutoFatima</li>
+          <li>Etiquetar a personas que aparecen</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-label">Colaboraciones</div>
+        <ul class="checklist">
+          <li>Egresados: testimonio (1 por mes)</li>
+          <li>Docentes: serie "La clase del profesor" (1/mes)</li>
+          <li>Otros institutos marianistas: intercambio</li>
+          <li>Red Educativa Marianista: publicaciones coordinadas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-label">Horarios optimos (Argentina)</div>
+        <p><strong>Lunes a viernes:</strong> 12:00-14:00 y 19:00-21:00<br>
+           <strong>Sabados:</strong> 11:00-13:00<br>
+           <strong>Domingos:</strong> 18:00-20:00<br>
+           <strong>TikTok:</strong> 19:00-21:00 cualquier dia</p>
+      </div>
+    </div>
+
+    <!-- Herramientas -->
+    <div style="margin-top: 2rem;">
+      <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Herramientas (sin costo)</h3>
+      <div class="grid-4">
+        <div class="card" style="text-align: center;">
+          <h3 style="font-size: 1rem;">Canva</h3>
+          <p>Diseno de posts, thumbnails, stories</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <h3 style="font-size: 1rem;">CapCut</h3>
+          <p>Edicion de video, subtitulos auto</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <h3 style="font-size: 1rem;">Google Drive</h3>
+          <p>Almacenamiento y comparticion</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <h3 style="font-size: 1rem;">Linktree</h3>
+          <p>Link en bio multipagina</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <h3>Instituto Terciario Nuestra Senora de Fatima</h3>
+    <div class="f-line"></div>
+    <p>
+      Villa Soldati, CABA — Mariano Acosta 2920<br>
+      @institutofatima — terciariofatimasoldati.edu.ar
+    </p>
+    <p style="margin-top: 1rem; font-size: 0.75rem; color: color-mix(in srgb, var(--crema) 40%, transparent);">
+      Documento de rebranding generado como parte del proyecto de identidad y estrategia de marketing digital.
+      Contiene auditoria, identidad visual, estrategia de contenido, calendario editorial, guias de produccion y metricas.
+    </p>
+  </div>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+/* Tabs */
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var tabId = this.getAttribute('data-tab');
+    var parent = this.closest('.section') || document;
+    parent.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    parent.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    this.classList.add('active');
+    var panel = document.getElementById(tabId);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+/* Mobile nav */
+var navToggle = document.getElementById('navToggle');
+var navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { navLinks.classList.remove('open'); });
+  });
+}
+
+/* Active nav link on scroll */
+var sections = document.querySelectorAll('section[id]');
+var navAnchors = document.querySelectorAll('.nav-links a');
+function updateActiveNav() {
+  var scrollY = window.scrollY + 100;
+  sections.forEach(function(sec) {
+    var top = sec.offsetTop;
+    var height = sec.offsetHeight;
+    var id = sec.getAttribute('id');
+    if (scrollY >= top && scrollY < top + height) {
+      navAnchors.forEach(function(a) {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+      });
+    }
+  });
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+</script>
+</body>
+</html>
